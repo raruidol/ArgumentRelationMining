@@ -1,0 +1,77 @@
+{'mcc': 0.6107090822321314, 'acc': 0.803391199031086, 'eval_loss': 2.441748162507992}
+{'mcc': 0.6107090822321314, 'acc': 0.803391199031086, 'eval_loss': 2.441748162507992}
+Test F1-macro score: 0.6857290851704088
+
+{'mcc': 0.47192112475229386, 'acc': 0.72218952324897, 'eval_loss': 3.3666474622838636}
+{'mcc': 0.47192112475229386, 'acc': 0.72218952324897, 'eval_loss': 3.3666474622838636}
+MM2012 F1-macro score: 0.5715506831388311
+
+{'mcc': 0.3644845432038108, 'acc': 0.6325167037861915, 'eval_loss': 4.236480668971413}
+{'mcc': 0.3644845432038108, 'acc': 0.6325167037861915, 'eval_loss': 4.236480668971413}
+Bank F1-macro score: 0.4363252627094575
+
+{'mcc': 0.36187396579153647, 'acc': 0.6621880998080614, 'eval_loss': 4.316732757922375}
+{'mcc': 0.36187396579153647, 'acc': 0.6621880998080614, 'eval_loss': 4.316732757922375}
+Empire F1-macro score: 0.511415136830988
+
+{'mcc': 0.39329817199011885, 'acc': 0.6452410383189122, 'eval_loss': 4.165844326510149}
+{'mcc': 0.39329817199011885, 'acc': 0.6452410383189122, 'eval_loss': 4.165844326510149}
+Money F1-macro score: 0.5280952633269338
+
+{'mcc': 0.3603561315452256, 'acc': 0.6415094339622641, 'eval_loss': 4.267415937781334}
+{'mcc': 0.3603561315452256, 'acc': 0.6415094339622641, 'eval_loss': 4.267415937781334}
+Problem F1-macro score: 0.5251546896649608
+
+{'mcc': 0.38220585977443866, 'acc': 0.6537530266343826, 'eval_loss': 4.218898996137655}
+{'mcc': 0.38220585977443866, 'acc': 0.6537530266343826, 'eval_loss': 4.218898996137655}
+Welfare F1-macro score: 0.5377719298245613
+
+
+train_args={
+  "output_dir": "outputs/",
+  "cache_dir": "cache/",
+
+  "fp16": True,
+  "fp16_opt_level": "O1",
+  "max_seq_length": 256,
+  "train_batch_size": 8,
+  "eval_batch_size": 8,
+  "gradient_accumulation_steps": 2,
+  "num_train_epochs": 50,
+  "weight_decay": 0,
+  "learning_rate": 1e-5,
+  "adam_epsilon": 1e-8,
+  "warmup_ratio": 0.06,
+  "warmup_steps": 120,
+  "max_grad_norm": 1.0,
+  "do_lower_case": True,
+
+  "logging_steps": 50,
+  "evaluate_during_training": False,
+  "evaluate_during_training_steps": 2000,
+  "evaluate_during_training_verbose": False,
+  "use_cached_eval_features": False,
+  "save_eval_checkpoints": False,
+  "save_steps": 2000,
+  "no_cache": False,
+  "save_model_every_epoch": True,
+  "tensorboard_dir": None,
+
+  "overwrite_output_dir": True,
+  "reprocess_input_data": True,
+  
+  "n_gpu": 2,
+  "silent": False,
+  "use_multiprocessing": True,
+
+  "wandb_project": None,
+  "wandb_kwargs": {},
+
+  "use_early_stopping": True,
+  "early_stopping_patience": 3,
+  "early_stopping_delta": 0,
+
+}
+
+# Create a ClassificationModel
+model = ClassificationModel('xlnet', 'xlnet-large-cased', num_labels=4, use_cuda=True, cuda_device=0, args=train_args)

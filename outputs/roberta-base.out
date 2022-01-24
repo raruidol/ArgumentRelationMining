@@ -1,0 +1,77 @@
+{'mcc': 0.6162549175730715, 'acc': 0.8086394832458619, 'eval_loss': 2.026258661196782}
+{'mcc': 0.6162549175730715, 'acc': 0.8086394832458619, 'eval_loss': 2.026258661196782}
+Test F1-macro score: 0.6842545125089899
+
+{'mcc': 0.48605865312270635, 'acc': 0.7404355503237199, 'eval_loss': 2.5915986288476875}
+{'mcc': 0.48605865312270635, 'acc': 0.7404355503237199, 'eval_loss': 2.5915986288476875}
+MM2012 F1-macro score: 0.5795807688134966
+
+{'mcc': 0.43019863956760357, 'acc': 0.6948775055679287, 'eval_loss': 2.554320901632309}
+{'mcc': 0.43019863956760357, 'acc': 0.6948775055679287, 'eval_loss': 2.554320901632309}
+Bank F1-macro score: 0.5127083358236014
+
+{'mcc': 0.40161445642927696, 'acc': 0.6928982725527831, 'eval_loss': 2.998050504260593}
+{'mcc': 0.40161445642927696, 'acc': 0.6928982725527831, 'eval_loss': 2.998050504260593}
+Empire F1-macro score: 0.52196391776109
+
+{'mcc': 0.41604319588926786, 'acc': 0.681087762669963, 'eval_loss': 3.139020030315106}
+{'mcc': 0.41604319588926786, 'acc': 0.681087762669963, 'eval_loss': 3.139020030315106}
+Money F1-macro score: 0.5365902678228396
+
+{'mcc': 0.3503096153456569, 'acc': 0.6566037735849056, 'eval_loss': 3.5323865780463586}
+{'mcc': 0.3503096153456569, 'acc': 0.6566037735849056, 'eval_loss': 3.5323865780463586}
+Problem F1-macro score: 0.5247590361445782
+
+{'mcc': 0.4243643993061619, 'acc': 0.6949152542372882, 'eval_loss': 3.2547618334109965}
+{'mcc': 0.4243643993061619, 'acc': 0.6949152542372882, 'eval_loss': 3.2547618334109965}
+Welfare F1-macro score: 0.5810601825428018
+
+
+train_args={
+  "output_dir": "outputs/",
+  "cache_dir": "cache/",
+
+  "fp16": True,
+  "fp16_opt_level": "O1",
+  "max_seq_length": 128,
+  "train_batch_size": 64,
+  "eval_batch_size": 64,
+  "gradient_accumulation_steps": 1,
+  "num_train_epochs": 50,
+  "weight_decay": 0,
+  "learning_rate": 4e-5,
+  "adam_epsilon": 1e-8,
+  "warmup_ratio": 0.06,
+  "warmup_steps": 0,
+  "max_grad_norm": 1.0,
+  "do_lower_case": True,
+
+  "logging_steps": 50,
+  "evaluate_during_training": False,
+  "evaluate_during_training_steps": 2000,
+  "evaluate_during_training_verbose": False,
+  "use_cached_eval_features": False,
+  "save_eval_checkpoints": False,
+  "save_steps": 2000,
+  "no_cache": False,
+  "save_model_every_epoch": True,
+  "tensorboard_dir": None,
+
+  "overwrite_output_dir": True,
+  "reprocess_input_data": True,
+  
+  "n_gpu": 2,
+  "silent": False,
+  "use_multiprocessing": True,
+
+  "wandb_project": None,
+  "wandb_kwargs": {},
+
+  "use_early_stopping": True,
+  "early_stopping_patience": 3,
+  "early_stopping_delta": 0,
+
+}
+
+# Create a ClassificationModel
+model = ClassificationModel('roberta', 'roberta-base', num_labels=4, use_cuda=True, cuda_device=0, args=train_args)

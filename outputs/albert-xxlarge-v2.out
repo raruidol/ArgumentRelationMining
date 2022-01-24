@@ -1,0 +1,100 @@
+
+Selected optimization level O1:  Insert automatic casts around Pytorch functions and Tensor methods.
+
+Defaults for this optimization level are:
+enabled                : True
+opt_level              : O1
+cast_model_type        : None
+patch_torch_functions  : True
+keep_batchnorm_fp32    : None
+master_weights         : None
+loss_scale             : dynamic
+Processing user overrides (additional kwargs that are not None)...
+After processing overrides, optimization options are:
+enabled                : True
+opt_level              : O1
+cast_model_type        : None
+patch_torch_functions  : True
+keep_batchnorm_fp32    : None
+master_weights         : None
+loss_scale             : dynamic
+
+
+{'mcc': 0.6637394318223079, 'acc': 0.8312474767864352, 'eval_loss': 2.473682978172456}
+{'mcc': 0.6637394318223079, 'acc': 0.8312474767864352, 'eval_loss': 2.473682978172456}
+Test F1-macro score: 0.7183498133737782
+Converting to features started. Cache is not used.
+{'mcc': 0.5379854572918665, 'acc': 0.7616244849911713, 'eval_loss': 3.7183955692543704}
+{'mcc': 0.5379854572918665, 'acc': 0.7616244849911713, 'eval_loss': 3.7183955692543704}
+MM2012 F1-macro score: 0.621919957493736
+Converting to features started. Cache is not used.
+{'mcc': 0.43394473320351334, 'acc': 0.6681514476614699, 'eval_loss': 5.307189787383628}
+{'mcc': 0.43394473320351334, 'acc': 0.6681514476614699, 'eval_loss': 5.307189787383628}
+Bank F1-macro score: 0.5403981302177666
+Converting to features started. Cache is not used.
+{'mcc': 0.40480437852820994, 'acc': 0.6871401151631478, 'eval_loss': 5.336674989634798}
+{'mcc': 0.40480437852820994, 'acc': 0.6871401151631478, 'eval_loss': 5.336674989634798}
+Empire F1-macro score: 0.5280223575219823
+Converting to features started. Cache is not used.
+{'mcc': 0.47488639311374914, 'acc': 0.7095179233621756, 'eval_loss': 4.671643643543638}
+{'mcc': 0.47488639311374914, 'acc': 0.7095179233621756, 'eval_loss': 4.671643643543638}
+Money F1-macro score: 0.60086467469213
+Converting to features started. Cache is not used.
+{'mcc': 0.3851781969624679, 'acc': 0.6641509433962264, 'eval_loss': 5.383423117536995}
+{'mcc': 0.3851781969624679, 'acc': 0.6641509433962264, 'eval_loss': 5.383423117536995}
+Problem F1-macro score: 0.5284318064257532
+Converting to features started. Cache is not used.
+{'mcc': 0.4389255633727761, 'acc': 0.6755447941888619, 'eval_loss': 5.139987918489797}
+{'mcc': 0.4389255633727761, 'acc': 0.6755447941888619, 'eval_loss': 5.139987918489797}
+Welfare F1-macro score: 0.5952578588543382
+
+
+
+train_args={
+  "output_dir": "outputs/",
+  "cache_dir": "cache/",
+
+  "fp16": True,
+  "fp16_opt_level": "O1",
+  "max_seq_length": 128,
+  "train_batch_size": 4,
+  "eval_batch_size": 4,
+  "gradient_accumulation_steps": 2,
+  "num_train_epochs": 50,
+  "weight_decay": 0,
+  "learning_rate": 1e-5,
+  "adam_epsilon": 1e-8,
+  "warmup_ratio": 0.06,
+  "warmup_steps": 120,
+  "max_grad_norm": 1.0,
+  "do_lower_case": True,
+
+  "logging_steps": 50,
+  "evaluate_during_training": False,
+  "evaluate_during_training_steps": 2000,
+  "evaluate_during_training_verbose": False,
+  "use_cached_eval_features": False,
+  "save_eval_checkpoints": False,
+  "save_steps": 2000,
+  "no_cache": False,
+  "save_model_every_epoch": True,
+  "tensorboard_dir": None,
+
+  "overwrite_output_dir": True,
+  "reprocess_input_data": True,
+  
+  "n_gpu": 2,
+  "silent": True,
+  "use_multiprocessing": True,
+
+  "wandb_project": None,
+  "wandb_kwargs": {},
+
+  "use_early_stopping": True,
+  "early_stopping_patience": 3,
+  "early_stopping_delta": 0,
+
+}
+
+# Create a ClassificationModel
+model = ClassificationModel('albert', 'albert-xxlarge-v2', num_labels=4, use_cuda=True, cuda_device=0, args=train_args)
