@@ -2,6 +2,9 @@
 Argument Relation Mining task approached using Transformer architectures and the US2016 corpus for training and cross-domain corpora for evaluation. 
 
 Code used for the "Transformer-Based Models for Automatic Detection of Argument Relations: A Cross-Domain Evaluation" paper.
+
+RoBERTa model available in https://huggingface.co/raruidol/ArgumentRelation
+
 Cite:
 
 ```
