@@ -3,7 +3,7 @@ Argument Relation Mining task approached using Transformer architectures and the
 
 Code used for the "Transformer-Based Models for Automatic Detection of Argument Relations: A Cross-Domain Evaluation" paper.
 
-RoBERTa model available in https://huggingface.co/raruidol/ArgumentRelation
+RoBERTa model available in https://huggingface.co/raruidol/ArgumentMining-EN-ARI-US2016
 
 Cite:
 
